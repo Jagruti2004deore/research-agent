@@ -156,14 +156,14 @@ def write_report(state: ResearchState) -> dict:
     if state["is_enough"]:
         coverage_note = ""
     else:
-        coverage_note = (
-            "IMPORTANT: A reviewer decided the sources do NOT adequately cover "
-            f"this topic. Reason: {state['reason']}\n"
-            "Your summary must begin by saying this plainly. Include a finding "
-            "only if a source directly states it about the exact subject of the "
-            "topic, not a broader or neighboring subject. If no source does, say "
-            "that no relevant findings were found and keep Key Findings to one "
-            "bullet saying so.\n"
+                coverage_note = (
+            "IMPORTANT: The searches did NOT find adequate sources for this topic. "
+            f"Internal note (do not quote it or mention a reviewer): {state['reason']}\n"
+            "Your summary must begin by saying plainly that the available sources "
+            "do not cover this topic. Include a finding only if a source directly "
+            "states it about the exact subject of the topic, not a broader or "
+            "neighboring subject. If no source does, keep Key Findings to one "
+            "bullet saying no relevant findings were found.\n"
         )
 
     prompt = _today() + WRITE_REPORT_PROMPT.format(
